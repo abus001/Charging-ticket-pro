@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+
+  <title>CHARGE TICKET PRO</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">CT</div>
+      <div>
+        <h1>CHARGE TICKET <span>PRO</span></h1>
+        <p>Smart Charging Shop Management</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="authSection" class="auth-card">
+
+      <div class="welcome">
+        <div class="welcome-icon">⚡</div>
+        <h2>Welcome to Charge Ticket Pro</h2>
+        <p>Manage your charging business professionally.</p>
+      </div>
+
+      <div class="tabs">
+        <button id="loginTab" class="tab active" type="button">
+          Login
+        </button>
+
+        <button id="registerTab" class="tab" type="button">
+          Register Shop
+        </button>
+      </div>
+
+      <form id="loginForm">
+        <h3>Sign In</h3>
+
+        <label for="loginEmail">Email Address</label>
+        <input
+          id="loginEmail"
+          type="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+
+        <label for="loginPassword">Password</label>
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button class="primary-btn" type="submit">
+          LOGIN
+        </button>
+      </form>
+
+      <form id="registerForm" hidden>
+        <h3>Register Your Shop</h3>
+
+        <label for="ownerName">Owner's Full Name</label>
+        <input
+          id="ownerName"
+          type="text"
+          placeholder="Enter full name"
+          autocomplete="name"
+          required
+        >
+
+        <label for="shopName">Shop Name</label>
+        <input
+          id="shopName"
+          type="text"
+          placeholder="e.g. DAN HAJIYA COMMUNICATION CENTER"
+          required
+        >
+
+        <label for="shopPrefix">Ticket Prefix</label>
+        <input
+          id="shopPrefix"
+          type="text"
+          placeholder="e.g. DHC"
+          maxlength="10"
+          required
+        >
+
+        <label for="ownerPhone">Phone Number</label>
+        <input
+          id="ownerPhone"
+          type="tel"
+          placeholder="Enter phone number"
+          autocomplete="tel"
+          required
+        >
+
+        <label for="shopAddress">Shop Address</label>
+        <input
+          id="shopAddress"
+          type="text"
+          placeholder="Enter shop address"
+          required
+        >
+
+        <label for="registerEmail">Email Address</label>
+        <input
+          id="registerEmail"
+          type="email"
+          placeholder="Enter email"
+          autocomplete="email"
+          required
+        >
+
+        <label for="registerPassword">Create Password</label>
+        <input
+          id="registerPassword"
+          type="password"
+          placeholder="At least 8 characters"
+          minlength="8"
+          autocomplete="new-password"
+          required
+        >
+
+        <button class="primary-btn" type="submit">
+          SUBMIT REGISTRATION
+        </button>
+
+        <p class="form-note">
+          Your shop must be approved by the Super Admin.
+        </p>
+      </form>
+
+      <p id="authMessage" class="message" role="status"></p>
+
+    </section>
+
+    <section id="dashboardSection" hidden>
+
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">SHOP MANAGEMENT</p>
+          <h2 id="dashboardShopName">Your Dashboard</h2>
+          <p id="dashboardWelcome">Welcome back!</p>
+        </div>
+
+        <button id="logoutBtn" class="secondary-btn" type="button">
+          LOGOUT
+        </button>
+      </div>
+
+      <div id="accountNotice" class="notice" hidden></div>
+
+      <div class="stats-grid">
+
+        <article class="stat-card">
+          <span>Total Tickets</span>
+          <strong id="totalTickets">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span>Charging</span>
+          <strong id="chargingTickets">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span>Ready</span>
+          <strong id="readyTickets">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span>Not Collected</span>
+          <strong id="pendingTickets">0</strong>
+        </article>
+
+      </div>
+
+      <section class="panel">
+        <h3>Quick Actions</h3>
+
+        <div class="action-grid">
+          <button id="newTicketBtn" class="action-btn" type="button">
+            ＋ New Ticket
+          </button>
+
+          <button id="viewTicketsBtn" class="action-btn" type="button">
+            🎫 All Tickets
+          </button>
+        </div>
+      </section>
+
+      <section id="ticketFormPanel" class="panel" hidden>
+        <h3>Create Charging Ticket</h3>
+
+        <form id="ticketForm">
+
+          <label for="itemName">Item Name</label>
+          <input
+            id="itemName"
+            type="text"
+            placeholder="e.g. Samsung Galaxy A15"
+            required
+          >
+
+          <label for="itemType">Item Type</label>
+          <select id="itemType" required>
+            <option value="Phone">Mobile Phone</option>
+            <option value="Power Bank">Power Bank</option>
+            <option value="Speaker">Bluetooth Speaker</option>
+            <option value="Headphones">Headphones / Earbuds</option>
+            <option value="Smart Watch">Smart Watch</option>
+            <option value="Torch">Rechargeable Torch</option>
+            <option value="Lamp">Rechargeable Lamp</option>
+            <option value="Tablet">Tablet</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="cardNumber">Card Number (1–2000)</label>
+          <input
+            id="cardNumber"
+            type="number"
+            min="1"
+            max="2000"
+            placeholder="e.g. 45"
+            required
+          >
+
+          <label for="itemColour">Item Colour</label>
+          <input
+            id="itemColour"
+            type="text"
+            placeholder="e.g. Black"
+          >
+
+          <label for="customerName">Customer Name (Optional)</label>
+          <input
+            id="customerName"
+            type="text"
+            placeholder="Customer name"
+          >
+
+          <label for="customerPhone">Customer Phone (Optional)</label>
+          <input
+            id="customerPhone"
+            type="tel"
+            placeholder="Customer phone number"
+          >
+
+          <label for="itemCondition">Item Condition</label>
+          <textarea
+            id="itemCondition"
+            placeholder="Describe the item's condition"
+            rows="3"
+          ></textarea>
+
+          <button class="primary-btn" type="submit">
+            GENERATE TICKET
+          </button>
+
+        </form>
+
+        <div id="ticketResult" class="ticket-result" hidden></div>
+      </section>
+
+      <section id="ticketsPanel" class="panel" hidden>
+        <h3>Ticket Management</h3>
+
+        <label for="ticketSearch">Search Ticket</label>
+        <input
+          id="ticketSearch"
+          type="search"
+          placeholder="Enter Ticket ID, item or card number"
+        >
+
+        <div class="filter-row">
+          <select id="statusFilter">
+            <option value="ALL">All Statuses</option>
+            <option value="CHARGING">Charging</option>
+            <option value="READY">Ready</option>
+            <option value="NOT COLLECTED">Not Collected</option>
+            <option value="RETURNED">Returned</option>
+          </select>
+        </div>
+
+        <div id="ticketsList" class="tickets-list">
+          <p class="empty-state">Tickets will appear here.</p>
+        </div>
+      </section>
+
+    </section>
+
+    <footer>
+      <p>CHARGE TICKET PRO © 2026</p>
+      <p>Smart • Secure • Professional</p>
+    </footer>
+
+  </main>
+
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>
